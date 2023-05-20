@@ -1,0 +1,129 @@
+{
+  "state": [
+    {
+      "checked": false,
+      "id": 15,
+      "name": "Product J",
+      "price": 30,
+      "description": "Product J full description",
+      "stock": [
+        {
+          "name": "Basra",
+          "quantity": 100
+        },
+        {
+          "name": "Baghdad",
+          "quantity": 200
+        },
+        {
+          "name": "Erbil",
+          "quantity": 0
+        }
+      ]
+    },
+    {
+      "checked": false,
+      "id": 12,
+      "name": "teeba",
+      "price": "6",
+      "description": "6",
+      "stock": [
+        {
+          "name": "Basra",
+          "quantity": 6
+        },
+        {
+          "name": "Baghdad",
+          "quantity": 6
+        },
+        {
+          "name": "Erbil",
+          "quantity": 6
+        }
+      ]
+    },
+    {
+      "id": 88,
+      "name": "watch",
+      "price": "3000",
+      "description": "xfgnhdxfyrjdtrjkhjmfgjmhftjkfyguk",
+      "stock": [
+        {
+          "name": "Basra",
+          "quantity": "1"
+        },
+        {
+          "name": "Baghdad",
+          "quantity": "1"
+        },
+        {
+          "name": "Erbil",
+          "quantity": "0"
+        }
+      ],
+      "checked": false
+    },
+    {
+      "id": 104,
+      "name": "watch",
+      "price": "3000",
+      "description": "xfgnhdxfyrjdtrjkhjmfgjmhftjkfyguk",
+      "stock": [
+        {
+          "name": "Basra",
+          "quantity": "1"
+        },
+        {
+          "name": "Baghdad",
+          "quantity": "1"
+        },
+        {
+          "name": "Erbil",
+          "quantity": "0"
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "name": "chair",
+      "price": "3",
+      "description": "sdfbvsthnesrthnryd",
+      "stock": [
+        {
+          "name": "Basra",
+          "quantity": "6"
+        },
+        {
+          "name": "Baghdad",
+          "quantity": "6"
+        },
+        {
+          "name": "Erbil",
+          "quantity": "6"
+        }
+      ],
+      "checked": false
+    },
+    {
+      "id": 31,
+      "name": "ITEM",
+      "price": "39999",
+      "description": "FDSHGRDSTH",
+      "stock": [
+        {
+          "name": "Basra",
+          "quantity": "45"
+        },
+        {
+          "name": "Baghdad",
+          "quantity": "5"
+        },
+        {
+          "name": "Erbil",
+          "quantity": "6"
+        }
+      ],
+      "checked": false
+    }
+  ]
+}

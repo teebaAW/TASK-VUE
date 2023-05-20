@@ -1,0 +1,82 @@
+<script setup>
+import store from '../store/store'
+function modalBtn() {
+  store.state.showModal = false
+}
+</script>
+
+<script>
+import { reactive } from 'vue'
+
+export default {
+  setup() {
+    const formState = reactive({
+      name: store.state.editData?.name,
+      price: '5',
+      description: '5',
+      erbil: '5',
+      baghdad: '5',
+      basra: '5'
+    })
+
+    function editProd(values) {
+      console.log(values)
+    }
+    // function modalBtn() {
+    //   console.log('lo')
+    //   //   store.state.showData = false
+    // }
+    return {
+      formState,
+      editProd
+    }
+  }
+}
+</script>
+
+<template>
+  <template>
+    <div class="text-center">
+      <v-dialog v-model="store.state.showModal" width="auto">
+        <v-card>
+          <v-card-text>
+            <div class="detail-modal">
+              <div>
+                <h3>Product Name</h3>
+                <h5>{{ store.state.showData.name }}</h5>
+                <h3>Product price</h3>
+                <h5>{{ store.state.showData.price }}</h5>
+
+                <h3>Product description</h3>
+                <h5>{{ store.state.showData.description }}</h5>
+              </div>
+              <div>
+                <h3>Quantity in Basra</h3>
+                <h5>{{ store.state.showData.stock[0].quantity }}</h5>
+
+                <h3>Quantity in Baghdad</h3>
+                <h5>{{ store.state.showData.stock[1].quantity }}</h5>
+                <h3>Quantity in Erbil</h3>
+                <h5>{{ store.state.showData.stock[2].quantity }}</h5>
+              </div>
+            </div>
+          </v-card-text>
+          <v-card-actions>
+            <v-btn color="primary" block @click="modalBtn">Close Dialog</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </div>
+  </template>
+</template>
+
+<style>
+.asd {
+  width: 500px;
+}
+.detail-modal {
+  display: flex;
+  justify-content: space-between;
+  gap: 28px;
+}
+</style>
