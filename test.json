@@ -102,7 +102,7 @@
           "quantity": "6"
         }
       ],
-      "checked": false
+      "checked": true
     },
     {
       "id": 35,
@@ -126,25 +126,24 @@
       "checked": false
     },
     {
-      "id": 66,
-      "name": "bed ",
-      "price": "2333",
-      "description": "erghwaebrvf",
+      "id": 38,
+      "name": "test test ",
+      "price": "3232",
+      "description": "jsjsjsjs",
       "stock": [
         {
           "name": "Basra",
-          "quantity": "2"
+          "quantity": "3"
         },
         {
           "name": "Baghdad",
-          "quantity": "2"
+          "quantity": "3"
         },
         {
           "name": "Erbil",
-          "quantity": "2"
+          "quantity": "3"
         }
-      ],
-      "checked": false
+      ]
     }
   ]
 }

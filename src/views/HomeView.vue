@@ -6,7 +6,7 @@ import store from '@/store/store'
 import axios from 'axios'
 import ProdEditModal from '../components/ProdEditModal.vue'
 import CreateModal from '../components/CreateModal.vue'
-import { mdiAccount, mdiDelete, mdiPencil, mdiShareVariant } from '@mdi/js'
+
 import ShowDetails from '../components/ShowDetails.vue'
 
 export default {
