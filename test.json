@@ -22,27 +22,6 @@
       ]
     },
     {
-      "checked": false,
-      "id": 12,
-      "name": "teeba",
-      "price": "6",
-      "description": "6",
-      "stock": [
-        {
-          "name": "Basra",
-          "quantity": 6
-        },
-        {
-          "name": "Baghdad",
-          "quantity": 6
-        },
-        {
-          "name": "Erbil",
-          "quantity": 6
-        }
-      ]
-    },
-    {
       "id": 88,
       "name": "watch",
       "price": "3000",
@@ -121,6 +100,48 @@
         {
           "name": "Erbil",
           "quantity": "6"
+        }
+      ],
+      "checked": false
+    },
+    {
+      "id": 35,
+      "name": "keyboard",
+      "price": "3000",
+      "description": "gaeghaehrsrtwsarthsfgrthbdrtdrthjntyjhngyntydefahweriufgerfghuerguilfwiuehrgio;hiowt4egij;ioth;iojreiogio;vaersfgdhszngrv;liaesthbwkefnrgkjaerjtfniha",
+      "stock": [
+        {
+          "name": "Basra",
+          "quantity": "6"
+        },
+        {
+          "name": "Baghdad",
+          "quantity": "5"
+        },
+        {
+          "name": "Erbil",
+          "quantity": "3"
+        }
+      ],
+      "checked": false
+    },
+    {
+      "id": 66,
+      "name": "bed ",
+      "price": "2333",
+      "description": "erghwaebrvf",
+      "stock": [
+        {
+          "name": "Basra",
+          "quantity": "2"
+        },
+        {
+          "name": "Baghdad",
+          "quantity": "2"
+        },
+        {
+          "name": "Erbil",
+          "quantity": "2"
         }
       ],
       "checked": false

@@ -16,10 +16,10 @@
     </thead>
     <tbody>
       <tr v-for="p in data" :key="p.id">
-        <td>{{ p.name }}</td>
-        <td>{{ p.price * 1000 }}</td>
+        <td class="truncate-description">{{ p.name }}</td>
+        <td class="truncate-description">{{ p.price }}</td>
 
-        <td>{{ p.description }}</td>
+        <td class="truncate-description">{{ p.description }}</td>
         <td>
           <v-text-field
             hide-details
@@ -29,6 +29,10 @@
             label="Specify a quantity"
           />
         </td>
+      </tr>
+      <tr>
+        <td>total price :</td>
+        <td> {{ calculateTotalPrice() }}</td>
       </tr>
     </tbody>
   </v-table>
@@ -52,6 +56,10 @@ function getCurrentDate() {
   return currentDate
 }
 const currentDate = getCurrentDate()
+
+function calculateTotalPrice() {
+  return data.reduce((sum, item) => sum + parseFloat(item.price), 0)
+}
 </script>
 
 <style scoped>
@@ -77,5 +85,11 @@ const currentDate = getCurrentDate()
   justify-content: space-between;
   margin-right: 10px;
   margin-left: 10px;
+}
+.truncate-description {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px; /* Adjust the width as needed */
 }
 </style>

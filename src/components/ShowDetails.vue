@@ -48,7 +48,7 @@ export default {
                 <h5>{{ store.state.showData.price }}</h5>
 
                 <h3>Product description</h3>
-                <h5>{{ store.state.showData.description }}</h5>
+                <h5 class="description">{{ store.state.showData.description }}</h5>
               </div>
               <div>
                 <h3>Quantity in Basra</h3>
@@ -78,5 +78,11 @@ export default {
   display: flex;
   justify-content: space-between;
   gap: 28px;
+}
+.description {
+  display: inline-block;
+  max-width: 300px;
+  word-wrap: break-word;
+  white-space: pre-line;
 }
 </style>
