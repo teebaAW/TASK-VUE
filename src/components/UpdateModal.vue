@@ -1,24 +1,23 @@
 <template>
-  <v-dialog v-model="store.state.openModal" width="auto">
+  <v-dialog v-model="store.state.editModal" width="auto">
     <v-card>
       <v-card-title class="text-h5"> ADD PRODUCT </v-card-title>
       <form @submit.prevent="submit" class="asd">
         <v-text-field
-          v-model="name.value.value"
           :counter="10"
           :error-messages="name.errorMessage.value"
-          label="Name"
+          :value="store.state.editData.name"
         ></v-text-field>
         <v-text-field
           v-model="price.value.value"
           :counter="7"
           :error-messages="price.errorMessage.value"
-          label="price"
+          :value="store.state.editData.price"
         ></v-text-field>
         <v-text-field
           v-model="description.value.value"
           :error-messages="description.errorMessage.value"
-          label="description"
+          :value="store.state.editData.description"
         ></v-text-field>
         <v-text-field
           v-model="basra.value.value"
@@ -26,7 +25,7 @@
           single-line
           type="number"
           class="field-margin"
-          label="Quantity in basra"
+          :value="store.state.editData.stock[0].quantity"
         />
         <v-text-field
           v-model="baghdad.value.value"
@@ -34,7 +33,7 @@
           single-line
           type="number"
           class="field-margin"
-          label="Quantity in baghdad"
+          :value="store.state.editData.stock[1].quantity"
         />
         <v-text-field
           v-model="erbil.value.value"
@@ -42,7 +41,7 @@
           single-line
           type="number"
           class="field-margin"
-          label="Quantity in erbil"
+          :value="store.state.editData.stock[2].quantity"
         />
         <div class="form-btn">
           <v-btn class="me-4" type="submit"> submit </v-btn>
@@ -53,19 +52,6 @@
   </v-dialog>
 </template>
 
-<!-- <script>
-export default {
-  data() {
-    return {}
-  },
-  mounted:{},
-  computed: {
-  },
-  methods: {
-  
-  }
-}
-</script> -->
 <script>
 import { ref } from 'vue'
 import { useField, useForm } from 'vee-validate'
@@ -123,8 +109,8 @@ export default {
           }
         ]
       }
-      store.state.openModal = false
-      store.dispatch('ADD_NEW', products)
+      store.state.editModal = false
+      //   store.dispatch('ADD_NEW', products)
     })
 
     return {

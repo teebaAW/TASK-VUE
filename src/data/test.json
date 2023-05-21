@@ -1,0 +1,196 @@
+{
+  "state": {
+    "products": [
+      {
+        "name": "Product A",
+        "price": 30,
+        "description": "Product A full description",
+        "stock": [
+          {
+            "name": "Basra",
+            "quantity": 100
+          },
+          {
+            "name": "Baghdad",
+            "quantity": 200
+          },
+          {
+            "name": "Erbil",
+            "quantity": 0
+          }
+        ]
+      },
+      {
+        "name": "Product B",
+        "price": 30.44,
+        "description": "Product B full description",
+        "stock": [
+          {
+            "name": "Basra",
+            "quantity": 100
+          },
+          {
+            "name": "Baghdad",
+            "quantity": 40
+          },
+          {
+            "name": "Erbil",
+            "quantity": 50
+          }
+        ]
+      },
+      {
+        "name": "Product C",
+        "price": 23,
+        "description": "Product C full description",
+        "stock": [
+          {
+            "name": "Basra",
+            "quantity": 117
+          },
+          {
+            "name": "Baghdad",
+            "quantity": 0
+          },
+          {
+            "name": "Erbil",
+            "quantity": 120
+          }
+        ]
+      },
+      {
+        "name": "Product D",
+        "price": 55.8,
+        "description": "Product D full description",
+        "stock": [
+          {
+            "name": "Basra",
+            "quantity": 0
+          },
+          {
+            "name": "Baghdad",
+            "quantity": 310
+          },
+          {
+            "name": "Erbil",
+            "quantity": 212
+          }
+        ]
+      },
+      {
+        "name": "Product E",
+        "price": 44.5,
+        "description": "Product E full description",
+        "stock": [
+          {
+            "name": "Basra",
+            "quantity": 202
+          },
+          {
+            "name": "Baghdad",
+            "quantity": 232
+          },
+          {
+            "name": "Erbil",
+            "quantity": 11
+          }
+        ]
+      },
+      {
+        "name": "Product F",
+        "price": 58,
+        "description": "Product F full description",
+        "stock": [
+          {
+            "name": "Basra",
+            "quantity": 100
+          },
+          {
+            "name": "Baghdad",
+            "quantity": 0
+          },
+          {
+            "name": "Erbil",
+            "quantity": 0
+          }
+        ]
+      },
+      {
+        "name": "Product G",
+        "price": 32,
+        "description": "Product G full description",
+        "stock": [
+          {
+            "name": "Basra",
+            "quantity": 202
+          },
+          {
+            "name": "Baghdad",
+            "quantity": 232
+          },
+          {
+            "name": "Erbil",
+            "quantity": 11
+          }
+        ]
+      },
+      {
+        "name": "Product H",
+        "price": 97,
+        "description": "Product H full description",
+        "stock": [
+          {
+            "name": "Basra",
+            "quantity": 77
+          },
+          {
+            "name": "Baghdad",
+            "quantity": 74
+          },
+          {
+            "name": "Erbil",
+            "quantity": 59
+          }
+        ]
+      },
+      {
+        "name": "Product I",
+        "price": 334,
+        "description": "Product I full description",
+        "stock": [
+          {
+            "name": "Basra",
+            "quantity": 0
+          },
+          {
+            "name": "Baghdad",
+            "quantity": 33
+          },
+          {
+            "name": "Erbil",
+            "quantity": 0
+          }
+        ]
+      },
+      {
+        "name": "Product J",
+        "price": 30,
+        "description": "Product J full description",
+        "stock": [
+          {
+            "name": "Basra",
+            "quantity": 100
+          },
+          {
+            "name": "Baghdad",
+            "quantity": 200
+          },
+          {
+            "name": "Erbil",
+            "quantity": 0
+          }
+        ]
+      }
+    ]
+  }
+}

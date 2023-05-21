@@ -12,7 +12,8 @@
   "dependencies": {
     "@mdi/js": "^7.2.96",
     "axios": "^1.4.0",
-    "vee-validate": "^4.9.4",
+    "html2pdf.js": "^0.10.1",
+    "vee-validate": "^4.5.8",
     "vue": "^3.3.2",
     "vue-router": "^4.2.0",
     "vuetify": "^3.3.0",

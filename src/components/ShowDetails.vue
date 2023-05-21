@@ -3,6 +3,8 @@ import store from '../store/store'
 function modalBtn() {
   store.state.showModal = false
 }
+
+console.log('  store.state.showData', store.state.showData)
 </script>
 
 <script>
@@ -10,24 +12,12 @@ import { reactive } from 'vue'
 
 export default {
   setup() {
-    const formState = reactive({
-      name: store.state.editData?.name,
-      price: '5',
-      description: '5',
-      erbil: '5',
-      baghdad: '5',
-      basra: '5'
-    })
-
     function editProd(values) {
       console.log(values)
     }
-    // function modalBtn() {
-    //   console.log('lo')
-    //   //   store.state.showData = false
-    // }
+
+    console.log('here')
     return {
-      formState,
       editProd
     }
   }

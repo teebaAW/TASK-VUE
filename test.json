@@ -40,9 +40,10 @@
           "quantity": "0"
         }
       ],
-      "checked": false
+      "checked": true
     },
     {
+      "checked": false,
       "id": 104,
       "name": "watch",
       "price": "3000",
@@ -102,7 +103,7 @@
           "quantity": "6"
         }
       ],
-      "checked": true
+      "checked": false
     },
     {
       "id": 35,
@@ -126,6 +127,7 @@
       "checked": false
     },
     {
+      "checked": false,
       "id": 38,
       "name": "test test ",
       "price": "3232",
@@ -142,6 +144,26 @@
         {
           "name": "Erbil",
           "quantity": "3"
+        }
+      ]
+    },
+    {
+      "id": 89,
+      "name": "test",
+      "price": "2000",
+      "description": "vdfbsdfbdfgrtes",
+      "stock": [
+        {
+          "name": "Basra",
+          "quantity": "1"
+        },
+        {
+          "name": "Baghdad",
+          "quantity": "1"
+        },
+        {
+          "name": "Erbil",
+          "quantity": "1"
         }
       ]
     }

@@ -3,63 +3,97 @@ import store from '@/store/store'
 </script>
 
 <script>
-import axios from 'axios'
-import ProdEditModal from '../components/ProdEditModal.vue'
+// import axios from 'axios'
+// import ProdEditModal from '../components/ProdEditModal.vue'
 import CreateModal from '../components/CreateModal.vue'
+import UpdateModal from '../components/UpdateModal.vue'
 
 import ShowDetails from '../components/ShowDetails.vue'
+import { mapGetters } from 'vuex'
 
 export default {
-  components: { ShowDetails },
-  mounted() {
-    store.commit('getProducts')
+  data() {
+    return {
+      // checked: null
+    }
+  },
+  computed: {
+    ...mapGetters({ products: 'products' })
+  },
+  methods: {
+    createModalFunc() {
+      store.state.openModal = true
+    },
+    editProd(p) {
+      store.state.editModal = true
+      store.state.editData = p
+    },
+    deleteProd(p) {
+      store.dispatch('DELETE_PRODUCT', p)
+    },
+    showProd(p) {
+      store.state.showModal = true
+      store.state.showData = p
+      console.log('clicked')
+      // console.log('  store.state.showData', store.state.showData)
+    },
+    // check(p) {
+    //   console.log('checked', p.checked)
+
+    //   if (!store.state.quotation) {
+    //     store.state.quotation = []
+    //   }
+    //   if (p.checked == true) {
+    //     p.checked = true
+    //     // store.commit('addToQuotation', p)
+    //     // store.commit('CHECKED_PRODUCTS', p)
+    //     store.dispatch('CHECKED_PRODUCTS', p)
+    //     console.log('products', this.products)
+    //   } else {
+    //     p.checked = false
+    //     store.commit('removeFromQuotation', p)
+    //     store.commit('unCheckedProducts', p)
+    //   }
+    // }
+    addToQuotation(p) {
+      store.dispatch('ADD_TO_QUOTATION', p)
+    }
   }
 }
 
-let checked
-function deleteProd(p) {
-  store.commit('deleteProduct', p.id)
-}
+// let checked
 
-function editProd(p) {
-  store.state.editModal = true
-  store.state.editData = p
-}
+// function check(p) {
+//   console.log('checked', p.checked)
 
-function showProd(p) {
-  store.state.showModal = true
-  store.state.showData = p
-}
+//   if (!store.state.quotation) {
+//     store.state.quotation = []
+//   }
+//   if (p.checked == true) {
+//     p.checked = true
+//     store.commit('addToQuotation', p)
+//     store.commit('checkedProducts', p)
+//   } else {
+//     p.checked = false
+//     store.commit('removeFromQuotation', p)
+//     store.commit('unCheckedProducts', p)
+//   }
+// }
 
-function check(p) {
-  console.log('checked', p.checked)
-
-  if (!store.state.quotation) {
-    store.state.quotation = []
-  }
-  if (p.checked == true) {
-    p.checked = true
-    store.commit('addToQuotation', p)
-    store.commit('checkedProducts', p)
-  } else {
-    p.checked = false
-    store.commit('removeFromQuotation', p)
-    store.commit('unCheckedProducts', p)
-  }
-}
-
-function addQuotation(p) {
-  store.commit('addToQuotation', p)
-}
-function createModalFunc() {
-  store.state.openModal = true
-}
+// function addQuotation(p) {
+//   store.commit('addToQuotation', p)
+// }
+// function createModalFunc() {
+//   store.state.openModal = true
+// }
 </script>
 
 <template>
-  <ProdEditModal />
+  <!-- <ProdEditModal /> -->
   <CreateModal />
+  <UpdateModal />
   <ShowDetails />
+
   <div class="home">
     <h1 class="home-text">Inventory Store</h1>
     <div class="create-btn"><v-btn @click="createModalFunc"> create item</v-btn></div>
@@ -79,9 +113,10 @@ function createModalFunc() {
           </tr>
         </thead>
         <tbody>
-          <tr v-for="p in store.state.products" :key="p.id">
+          <tr v-for="p in products" :key="p.id">
             <td>
-              <input type="checkbox" id="checkbox" v-model="p.checked" @change="check(p)" />
+              <!-- <input type="checkbox" id="checkbox" v-model="p.checked" @change="check(p)" /> -->
+              <v-btn @click="addToQuotation(p)" class="small-btn"> quotation </v-btn>
             </td>
             <td class="truncate-description">{{ p.name }}</td>
             <td class="truncate-description">{{ p.price }}</td>
@@ -133,5 +168,8 @@ function createModalFunc() {
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 200px; /* Adjust the width as needed */
+}
+.small-btn {
+  font-size: 10px;
 }
 </style>
