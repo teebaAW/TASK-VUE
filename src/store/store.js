@@ -16,7 +16,8 @@ const store = createStore({
       editData: null, //used
       showData: null, //used
       quotatiom: [],
-      checked: false
+      checked: false,
+      snackbar: false
     }
   },
   getters: {
@@ -65,6 +66,7 @@ const store = createStore({
       if (!exists) {
         state.quotatiom.push({ ...payload })
         localStorage.setItem('quotation', JSON.stringify(state.quotatiom))
+        state.snackbar = true
       }
     }
   }

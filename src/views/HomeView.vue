@@ -17,6 +17,7 @@ export default {
       // checked: null
     }
   },
+
   computed: {
     ...mapGetters({ products: 'products' })
   },
@@ -35,57 +36,13 @@ export default {
       store.state.showModal = true
       store.state.showData = p
       console.log('clicked')
-      // console.log('  store.state.showData', store.state.showData)
     },
-    // check(p) {
-    //   console.log('checked', p.checked)
 
-    //   if (!store.state.quotation) {
-    //     store.state.quotation = []
-    //   }
-    //   if (p.checked == true) {
-    //     p.checked = true
-    //     // store.commit('addToQuotation', p)
-    //     // store.commit('CHECKED_PRODUCTS', p)
-    //     store.dispatch('CHECKED_PRODUCTS', p)
-    //     console.log('products', this.products)
-    //   } else {
-    //     p.checked = false
-    //     store.commit('removeFromQuotation', p)
-    //     store.commit('unCheckedProducts', p)
-    //   }
-    // }
     addToQuotation(p) {
       store.dispatch('ADD_TO_QUOTATION', p)
     }
   }
 }
-
-// let checked
-
-// function check(p) {
-//   console.log('checked', p.checked)
-
-//   if (!store.state.quotation) {
-//     store.state.quotation = []
-//   }
-//   if (p.checked == true) {
-//     p.checked = true
-//     store.commit('addToQuotation', p)
-//     store.commit('checkedProducts', p)
-//   } else {
-//     p.checked = false
-//     store.commit('removeFromQuotation', p)
-//     store.commit('unCheckedProducts', p)
-//   }
-// }
-
-// function addQuotation(p) {
-//   store.commit('addToQuotation', p)
-// }
-// function createModalFunc() {
-//   store.state.openModal = true
-// }
 </script>
 
 <template>
@@ -116,7 +73,15 @@ export default {
           <tr v-for="p in products" :key="p.id">
             <td>
               <!-- <input type="checkbox" id="checkbox" v-model="p.checked" @change="check(p)" /> -->
-              <v-btn @click="addToQuotation(p)" class="small-btn"> quotation </v-btn>
+              <v-btn @click="addToQuotation(p)" class="small-btn">
+                <v-snackbar v-model="store.state.snackbar">
+                  product added to a quatation
+                  <template v-slot:actions>
+                    <v-btn color="pink" variant="text" @click="snackbar = false"> Close </v-btn>
+                  </template>
+                </v-snackbar>
+                quotation
+              </v-btn>
             </td>
             <td class="truncate-description">{{ p.name }}</td>
             <td class="truncate-description">{{ p.price }}</td>
