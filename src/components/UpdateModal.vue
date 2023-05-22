@@ -6,42 +6,44 @@
         <v-text-field
           :counter="10"
           :error-messages="name.errorMessage.value"
-          :value="store.state.editData.name"
+          label="name"
+          v-model="name.value.value"
         ></v-text-field>
         <v-text-field
           v-model="price.value.value"
           :counter="7"
           :error-messages="price.errorMessage.value"
-          :value="store.state.editData.price"
+          label="price"
         ></v-text-field>
+
         <v-text-field
           v-model="description.value.value"
           :error-messages="description.errorMessage.value"
-          :value="store.state.editData.description"
+          label="description"
         ></v-text-field>
+        stocks in basra
         <v-text-field
           v-model="basra.value.value"
           hide-details
           single-line
           type="number"
           class="field-margin"
-          :value="store.state.editData.stock[0].quantity"
         />
+        stocks in baghdad
         <v-text-field
           v-model="baghdad.value.value"
           hide-details
           single-line
           type="number"
           class="field-margin"
-          :value="store.state.editData.stock[1].quantity"
         />
+        stocks in baghdad
         <v-text-field
           v-model="erbil.value.value"
           hide-details
           single-line
           type="number"
           class="field-margin"
-          :value="store.state.editData.stock[2].quantity"
         />
         <div class="form-btn">
           <v-btn class="me-4" type="submit"> submit </v-btn>
@@ -60,12 +62,6 @@ export default {
   setup() {
     const { handleSubmit, handleReset } = useForm({
       validationSchema: {
-        name(value) {
-          if (value?.length >= 2) return true
-
-          return 'Name needs to be at least 2 characters.'
-        },
-
         price(value) {
           if (/^\d+(\.\d+)?$/.test(value)) return true
 
@@ -80,16 +76,24 @@ export default {
     })
     const name = useField('name')
     const price = useField('price')
+
     const description = useField('description')
     const basra = useField('basra')
     const baghdad = useField('baghdad')
     const erbil = useField('erbil')
+    name.value.value = store?.state?.editData?.name
+
+    price.value.value = store?.state?.editData?.price
+    description.value.value = store?.state?.editData?.description
+    basra.value.value = store?.state?.editData?.stock[0].quantity
+
+    baghdad.value.value = store?.state?.editData?.stock[1].quantity
+    erbil.value.value = store?.state?.editData?.stock[2].quantity
 
     const submit = handleSubmit((values) => {
-      let randomNumber = Math.random()
-      randomNumber = Math.floor(randomNumber * 100) + 21
+      // console.log('val', values)
+
       let products = {
-        id: randomNumber,
         name: values.name,
         price: values.price,
         description: values.description,
@@ -102,13 +106,20 @@ export default {
             name: 'Baghdad',
             quantity: values.baghdad
           },
+
           {
             name: 'Erbil',
             quantity: values.erbil
           }
+
+
         ]
       }
-      store.state.editModal = false
+
+      // store.state.openEditModal = false
+
+      console.log('products', products)
+      store.dispatch('EDIT_PRODUCT', products)
     })
 
     return {

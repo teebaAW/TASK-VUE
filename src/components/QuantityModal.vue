@@ -57,6 +57,8 @@ export default {
         snackbar.value = true
       } else {
         store.state.quantityModalData.totalQuantity = values.quantity
+        store.state.quantityModalData.totalPrice =
+          values.quantity * store.state.quantityModalData.price
         store.dispatch('ADD_TO_QUOTATION', store.state.quantityModalData)
         store.state.openQuantityModal = false
         store.state.snackbarTwo = true

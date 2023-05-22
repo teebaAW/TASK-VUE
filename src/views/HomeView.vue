@@ -11,7 +11,9 @@ import { mapGetters } from 'vuex'
 
 export default {
   data() {
-    return {}
+    return {
+      exists: false
+    }
   },
 
   computed: {
@@ -35,8 +37,15 @@ export default {
     },
 
     addToQuotation(p) {
-      store.state.openQuantityModal = true
-      store.state.quantityModalData = p
+      const exists = store.state.quotatiom.find((i) => i.name === p.name)
+      if (exists) {
+        console.log('already exists')
+        this.exists = true
+      }
+      if (!exists) {
+        store.state.openQuantityModal = true
+        store.state.quantityModalData = p
+      }
     }
   }
 }
@@ -93,6 +102,12 @@ export default {
           <v-btn color="pink" variant="text" @click="store.state.snackbarTwo = false">
             Close
           </v-btn>
+        </template>
+      </v-snackbar>
+      <v-snackbar v-model="exists" :timeout="500">
+        Item already exists
+        <template v-slot:actions>
+          <v-btn color="pink" variant="text" @click="exists = false"> Close </v-btn>
         </template>
       </v-snackbar>
     </div>

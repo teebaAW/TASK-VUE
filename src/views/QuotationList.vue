@@ -9,7 +9,6 @@
           <th>Total Price</th>
           <th>Description</th>
           <th>Total Quantity</th>
-
           <th></th>
         </tr>
       </thead>
@@ -23,6 +22,10 @@
           </td>
 
           <td><v-btn @click="deleteQuote(p)">delete</v-btn></td>
+        </tr>
+        <tr>
+          <td>total price</td>
+          <td>{{ calculateTotalPrice() }}</td>
         </tr>
       </tbody>
     </v-table>
@@ -49,6 +52,10 @@ function deleteQuote(p) {
 
 function goToPrintPage() {
   window.open('/quote', '_blank')
+}
+function calculateTotalPrice() {
+  if (store.state.quotatiom)
+    return store.state.quotatiom?.reduce((sum, item) => sum + parseFloat(item.totalPrice), 0)
 }
 </script>
 
