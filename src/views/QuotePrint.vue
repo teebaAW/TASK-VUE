@@ -53,9 +53,6 @@ function exportToPDF() {
     filename: 'quotation.pdf'
   })
 }
-function deleteFunction(p) {
-  console.log('p', p)
-}
 
 function calculateTotalPrice() {
   if (data) return data?.reduce((sum, item) => sum + parseFloat(item.price), 0)

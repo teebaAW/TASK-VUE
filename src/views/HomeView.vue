@@ -19,32 +19,30 @@ export default {
   },
   methods: {
     createModalFunc() {
-      store.state.openModal = true
+      store.state.openCreateModal = true
     },
     editProd(p) {
-      store.state.editModal = true
+      store.state.openEditModal = true
       store.state.editData = p
     },
     deleteProd(p) {
       store.dispatch('DELETE_PRODUCT', p)
     },
     showProd(p) {
-      store.state.showModal = true
+      store.state.openDetailsModal = true
       store.state.showData = p
       console.log('clicked')
     },
 
     addToQuotation(p) {
-      store.state.quantityModal = true
+      store.state.openQuantityModal = true
       store.state.quantityModalData = p
-      // store.dispatch('ADD_TO_QUOTATION', p)
     }
   }
 }
 </script>
 
 <template>
-  <!-- <ProdEditModal /> -->
   <CreateModal />
   <UpdateModal />
   <ShowDetails />
@@ -72,13 +70,13 @@ export default {
             <td>
               <v-btn @click="addToQuotation(p)" class="small-btn"> quotation </v-btn>
             </td>
-            <td class="truncate-description">{{ p.name }}</td>
-            <td class="truncate-description">{{ p.price }}</td>
-            <td class="truncate-description">{{ p.description }}</td>
-            <td>{{ p.stock[0].quantity }}</td>
-            <td>{{ p.stock[1].quantity }}</td>
-            <td>{{ p.stock[2].quantity }}</td>
-            <td>
+            <td class="truncate-name">{{ p.name }}</td>
+            <td class="truncate-item">{{ p.price }}</td>
+            <td class="truncate-item">{{ p.description }}</td>
+            <td class="truncate-quantity">{{ p.stock[0].quantity }}</td>
+            <td class="truncate-quantity">{{ p.stock[1].quantity }}</td>
+            <td class="truncate-quantity">{{ p.stock[2].quantity }}</td>
+            <td class="truncate-quantity">
               {{ p.stock[0].quantity + p.stock[1].quantity + p.stock[2].quantity }}
             </td>
             <td>
@@ -125,11 +123,24 @@ export default {
   width: 70px;
   margin-right: 10px;
 }
-.truncate-description {
+.truncate-item {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 200px; /* Adjust the width as needed */
+  max-width: 150px;
+}
+.truncate-quantity {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 50px;
+}
+
+.truncate-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
 }
 .small-btn {
   font-size: 10px;

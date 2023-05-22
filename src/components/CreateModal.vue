@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="store.state.openModal" width="auto">
+  <v-dialog v-model="store.state.openCreateModal" width="auto">
     <v-card>
       <v-card-title class="text-h5"> ADD PRODUCT </v-card-title>
       <form @submit.prevent="submit" class="asd">
@@ -110,7 +110,7 @@ export default {
           }
         ]
       }
-      store.state.openModal = false
+      store.state.openCreateModal = false
       store.dispatch('ADD_NEW', products)
     })
 

@@ -4,17 +4,20 @@ import data from '../data/test.json'
 const store = createStore({
   state() {
     return {
-      products: data.state.products, //used
-      openModal: false, //used
-      editModal: false, //used
-      showModal: false, //used
-      editData: null, //used
-      showData: null, //used
+      products: data.state.products, 
+      openCreateModal: false, 
+      openEditModal: false, 
+      openDetailsModal: false, 
+      openQuantityModal: false,
+
+      editData: null, 
+      showData: null, 
+      quantityModalData: null,
+
       quotatiom: [],
-      checked: false,
       snackbarTwo: false,
-      quantityModal: false,
-      quantityModalData: null
+    
+   
     }
   },
   getters: {

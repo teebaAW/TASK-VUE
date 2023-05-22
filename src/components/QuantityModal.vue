@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="store.state.quantityModal" width="auto">
+  <v-dialog v-model="store.state.openQuantityModal" width="auto">
     <v-card>
       <v-card-title class="text-h5"> ADD PRODUCT </v-card-title>
       <form @submit.prevent="submit" class="asd">
@@ -54,13 +54,13 @@ export default {
           store.state.quantityModalData.stock[1].quantity +
           store.state.quantityModalData.stock[2].quantity
       ) {
-        console.log('nop')
         snackbar.value = true
       } else {
         store.state.quantityModalData.totalQuantity = values.quantity
         store.dispatch('ADD_TO_QUOTATION', store.state.quantityModalData)
-        store.state.quantityModal = false
+        store.state.openQuantityModal = false
         store.state.snackbarTwo = true
+        quantity.value.value = ''
       }
 
       //   store.dispatch('ADD_NEW', products)

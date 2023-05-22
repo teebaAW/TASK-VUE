@@ -8,7 +8,7 @@
           <th>Name</th>
           <th>Price</th>
           <th>Description</th>
-          <th>Quantity</th>
+          <th>Total Quantity</th>
 
           <th></th>
         </tr>
@@ -22,11 +22,11 @@
             {{ p.totalQuantity }}
           </td>
 
-          <td><v-btn @click="deleteFunction(p)">delete</v-btn></td>
+          <td><v-btn @click="deleteQuote(p)">delete</v-btn></td>
         </tr>
       </tbody>
     </v-table>
-    <v-btn @click="goToPage" type="submit"> go to qoutation to print</v-btn>
+    <v-btn @click="goToPrintPage" type="submit"> go to qoutation to print</v-btn>
   </div>
 </template>
 
@@ -43,11 +43,11 @@ function getCurrentDate() {
 }
 const currentDate = getCurrentDate()
 
-function deleteFunction(p) {
+function deleteQuote(p) {
   store.dispatch('DELETE_QUOTATION', p)
 }
 
-function goToPage() {
+function goToPrintPage() {
   window.open('/quote', '_blank')
 }
 </script>

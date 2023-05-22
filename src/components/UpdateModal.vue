@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="store.state.editModal" width="auto">
+  <v-dialog v-model="store.state.openEditModal" width="auto">
     <v-card>
       <v-card-title class="text-h5"> EDIT PRODUCT </v-card-title>
       <form @submit.prevent="submit" class="asd">
@@ -53,7 +53,6 @@
 </template>
 
 <script>
-import { ref } from 'vue'
 import { useField, useForm } from 'vee-validate'
 import store from '../store/store'
 
