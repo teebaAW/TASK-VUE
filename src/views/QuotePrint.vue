@@ -10,7 +10,7 @@
       <thead>
         <tr>
           <th>Name</th>
-          <th>Price</th>
+          <th> Total Price</th>
           <th>Description</th>
           <th>Total Quantity</th>
         </tr>
@@ -18,7 +18,7 @@
       <tbody>
         <tr v-for="p in data" :key="p.id">
           <td class="truncate-description">{{ p.name }}</td>
-          <td class="truncate-description">{{ p.price }}</td>
+          <td class="truncate-description">{{ p.price * p.totalQuantity }}</td>
           <td class="truncate-description">{{ p.description }}</td>
           <td class="truncate-description">{{ p.totalQuantity }}</td>
         </tr>
