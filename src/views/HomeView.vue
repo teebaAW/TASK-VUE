@@ -3,19 +3,15 @@ import store from '@/store/store'
 </script>
 
 <script>
-// import axios from 'axios'
-// import ProdEditModal from '../components/ProdEditModal.vue'
 import CreateModal from '../components/CreateModal.vue'
 import UpdateModal from '../components/UpdateModal.vue'
-
+import QuantityModal from '../components/QuantityModal.vue'
 import ShowDetails from '../components/ShowDetails.vue'
 import { mapGetters } from 'vuex'
 
 export default {
   data() {
-    return {
-      // checked: null
-    }
+    return {}
   },
 
   computed: {
@@ -39,7 +35,9 @@ export default {
     },
 
     addToQuotation(p) {
-      store.dispatch('ADD_TO_QUOTATION', p)
+      store.state.quantityModal = true
+      store.state.quantityModalData = p
+      // store.dispatch('ADD_TO_QUOTATION', p)
     }
   }
 }
@@ -50,7 +48,7 @@ export default {
   <CreateModal />
   <UpdateModal />
   <ShowDetails />
-
+  <QuantityModal />
   <div class="home">
     <h1 class="home-text">Inventory Store</h1>
     <div class="create-btn"><v-btn @click="createModalFunc"> create item</v-btn></div>
@@ -72,16 +70,7 @@ export default {
         <tbody>
           <tr v-for="p in products" :key="p.id">
             <td>
-              <!-- <input type="checkbox" id="checkbox" v-model="p.checked" @change="check(p)" /> -->
-              <v-btn @click="addToQuotation(p)" class="small-btn">
-                <v-snackbar v-model="store.state.snackbar">
-                  product added to a quatation
-                  <template v-slot:actions>
-                    <v-btn color="pink" variant="text" @click="snackbar = false"> Close </v-btn>
-                  </template>
-                </v-snackbar>
-                quotation
-              </v-btn>
+              <v-btn @click="addToQuotation(p)" class="small-btn"> quotation </v-btn>
             </td>
             <td class="truncate-description">{{ p.name }}</td>
             <td class="truncate-description">{{ p.price }}</td>
@@ -100,6 +89,14 @@ export default {
           </tr>
         </tbody>
       </v-table>
+      <v-snackbar v-model="store.state.snackbarTwo" :timeout="500">
+        Added to qoutation
+        <template v-slot:actions>
+          <v-btn color="pink" variant="text" @click="store.state.snackbarTwo = false">
+            Close
+          </v-btn>
+        </template>
+      </v-snackbar>
     </div>
   </div>
 </template>

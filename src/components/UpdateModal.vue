@@ -1,7 +1,7 @@
 <template>
   <v-dialog v-model="store.state.editModal" width="auto">
     <v-card>
-      <v-card-title class="text-h5"> ADD PRODUCT </v-card-title>
+      <v-card-title class="text-h5"> EDIT PRODUCT </v-card-title>
       <form @submit.prevent="submit" class="asd">
         <v-text-field
           :counter="10"
@@ -110,7 +110,6 @@ export default {
         ]
       }
       store.state.editModal = false
-      //   store.dispatch('ADD_NEW', products)
     })
 
     return {

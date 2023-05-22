@@ -3,25 +3,6 @@ import store from '../store/store'
 function modalBtn() {
   store.state.showModal = false
 }
-
-console.log('  store.state.showData', store.state.showData)
-</script>
-
-<script>
-import { reactive } from 'vue'
-
-export default {
-  setup() {
-    function editProd(values) {
-      console.log(values)
-    }
-
-    console.log('here')
-    return {
-      editProd
-    }
-  }
-}
 </script>
 
 <template>
@@ -29,6 +10,8 @@ export default {
     <div class="text-center">
       <v-dialog v-model="store.state.showModal" width="auto">
         <v-card>
+          <v-card-title class="text-h5"> PRODUCT DETAILS</v-card-title>
+
           <v-card-text>
             <div class="detail-modal">
               <div>

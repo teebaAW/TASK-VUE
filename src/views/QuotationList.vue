@@ -8,6 +8,8 @@
           <th>Name</th>
           <th>Price</th>
           <th>Description</th>
+          <th>Quantity</th>
+
           <th></th>
         </tr>
       </thead>
@@ -16,19 +18,20 @@
           <td class="truncate-description">{{ p.name }}</td>
           <td class="truncate-description">{{ p.price }}</td>
           <td class="truncate-description">{{ p.description }}</td>
+          <td class="truncate-description">
+            {{ p.totalQuantity }}
+          </td>
+
           <td><v-btn @click="deleteFunction(p)">delete</v-btn></td>
         </tr>
       </tbody>
     </v-table>
-    <v-btn @click="goToPage"> go to qoutation to print</v-btn>
+    <v-btn @click="goToPage" type="submit"> go to qoutation to print</v-btn>
   </div>
 </template>
 
 <script setup>
 import store from '../store/store'
-import html2pdf from 'html2pdf.js'
-
-// const data = JSON.parse(localStorage.getItem('quotation'))
 
 function getCurrentDate() {
   const today = new Date()
@@ -40,15 +43,10 @@ function getCurrentDate() {
 }
 const currentDate = getCurrentDate()
 
-function exportToPDF() {
-  html2pdf(document.getElementById('element-to-convert'), {
-    margin: 1,
-    filename: 'quatation.pdf'
-  })
-}
 function deleteFunction(p) {
   store.dispatch('DELETE_QUOTATION', p)
 }
+
 function goToPage() {
   window.open('/quote', '_blank')
 }

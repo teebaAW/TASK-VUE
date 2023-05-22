@@ -1,10 +1,5 @@
-import axios from 'axios'
-
 import { createStore } from 'vuex'
-// import { data } from '../data/test.json'
 import data from '../data/test.json'
-
-//import data here
 
 const store = createStore({
   state() {
@@ -17,20 +12,15 @@ const store = createStore({
       showData: null, //used
       quotatiom: [],
       checked: false,
-      snackbar: false
+      snackbarTwo: false,
+      quantityModal: false,
+      quantityModalData: null
     }
   },
   getters: {
     products: (state) => state.products
   },
   mutations: {
-    ///check if computed is where to always put the data
-    //put methods in actions
-    //read about getters and actions
-    //read about commit
-    //getters are computed
-    // import data in src
-
     CHECKED_PRODUCTS(state, p) {
       console.log('p', p)
       state.products.forEach((e, i) => {

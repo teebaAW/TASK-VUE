@@ -12,6 +12,7 @@
           <th>Name</th>
           <th>Price</th>
           <th>Description</th>
+          <th>Total Quantity</th>
         </tr>
       </thead>
       <tbody>
@@ -19,6 +20,7 @@
           <td class="truncate-description">{{ p.name }}</td>
           <td class="truncate-description">{{ p.price }}</td>
           <td class="truncate-description">{{ p.description }}</td>
+          <td class="truncate-description">{{ p.totalQuantity }}</td>
         </tr>
         <tr>
           <td>total price :</td>

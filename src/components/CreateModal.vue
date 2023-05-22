@@ -53,19 +53,6 @@
   </v-dialog>
 </template>
 
-<!-- <script>
-export default {
-  data() {
-    return {}
-  },
-  mounted:{},
-  computed: {
-  },
-  methods: {
-  
-  }
-}
-</script> -->
 <script>
 import { ref } from 'vue'
 import { useField, useForm } from 'vee-validate'

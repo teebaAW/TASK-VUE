@@ -1,10 +1,9 @@
 <script setup>
 import store from '../store/store'
-console.log('store.state.editDataaaa', store.state.editData)
 </script>
 
 <script>
-import { reactive, watch } from 'vue'
+import { reactive } from 'vue'
 
 export default {
   created() {
