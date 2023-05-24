@@ -110,8 +110,8 @@ export default {
           }
         ]
       }
-      store.state.openCreateModal = false
       store.dispatch('ADD_NEW', products)
+      store.state.openCreateModal = false
     })
 
     return {

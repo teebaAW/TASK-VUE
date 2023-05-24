@@ -47,14 +47,12 @@ function getCurrentDate() {
   return currentDate
 }
 const currentDate = getCurrentDate()
-
 function exportToPDF() {
   html2pdf(document.getElementById('element-to-convert'), {
     margin: 1,
     filename: 'quotation.pdf'
   })
 }
-
 function calculateTotalPrice() {
   if (data) return data?.reduce((sum, item) => sum + parseFloat(item.totalPrice), 0)
 }
@@ -95,32 +93,7 @@ function calculateTotalPrice() {
   display: none;
 }
 </style>
-<!-- <template>
-  <div id="app" ref="document">
-    <div id="element-to-convert">
-      <center>
-        <img width="400" src="./assets/constellation.png" />
-      </center>
-    </div>
-    <button @click="exportToPDF">Export to PDF</button>
-  </div>
-</template> -->
 
-<!-- <script>
-import html2pdf from 'html2pdf.js'
-
-export default {
-  name: 'app',
-  methods: {
-    exportToPDF() {
-      html2pdf(document.getElementById('element-to-convert'), {
-        margin: 1,
-        filename: 'i-was-html.pdf'
-      })
-    }
-  }
-}
-</script> -->
 
 <style>
 #app {

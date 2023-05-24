@@ -53,7 +53,7 @@
     </v-card>
   </v-dialog>
 </template>
-
+<!-- 
 <script>
 import { useField, useForm } from 'vee-validate'
 import store from '../store/store'
@@ -81,18 +81,19 @@ export default {
     const basra = useField('basra')
     const baghdad = useField('baghdad')
     const erbil = useField('erbil')
-    name.value.value = store?.state?.editData?.name
 
-    price.value.value = store?.state?.editData?.price
-    description.value.value = store?.state?.editData?.description
-    basra.value.value = store?.state?.editData?.stock[0].quantity
+    //   mounted() {
 
-    baghdad.value.value = store?.state?.editData?.stock[1].quantity
-    erbil.value.value = store?.state?.editData?.stock[2].quantity
+    // }
+
+    this.name.value.value = this.$store.state.editData.name
+    this.price.value.value = this.$store.state.editData.price
+    this.description.value.value = this.$store.state.editData.description
+    this.basra.value.value = this.$store.state.editData.stock[0].quantity
+    this.baghdad.value.value = this.$store.state.editData.stock[1].quantity
+    this.erbil.value.value = this.$store.state.editData.stock[2].quantity
 
     const submit = handleSubmit((values) => {
-      // console.log('val', values)
-
       let products = {
         name: values.name,
         price: values.price,
@@ -111,14 +112,8 @@ export default {
             name: 'Erbil',
             quantity: values.erbil
           }
-
-
         ]
       }
-
-      // store.state.openEditModal = false
-
-      console.log('products', products)
       store.dispatch('EDIT_PRODUCT', products)
     })
 
@@ -135,7 +130,7 @@ export default {
     }
   }
 }
-</script>
+</script> -->
 <style>
 .asd {
   width: 500px;
@@ -148,3 +143,66 @@ export default {
   margin-top: 30px;
 }
 </style>
+
+<script setup>
+import { onUpdated } from 'vue'
+
+import { useField, useForm } from 'vee-validate'
+import store from '../store/store'
+const { handleSubmit, handleReset } = useForm({
+  validationSchema: {
+    price(value) {
+      if (/^\d+(\.\d+)?$/.test(value)) return true
+
+      return 'Price must be a valid number.'
+    },
+    description(value) {
+      if (value?.length >= 2) return true
+
+      return 'Name needs to be at least 2 characters.'
+    }
+  }
+})
+const name = useField('name')
+const price = useField('price')
+
+const description = useField('description')
+const basra = useField('basra')
+
+const baghdad = useField('baghdad')
+const erbil = useField('erbil')
+
+onUpdated(() => {
+  name.value.value = store.state?.editData?.name
+  price.value.value = store.state?.editData?.price
+  description.value.value = store.state?.editData?.description
+  basra.value.value = store.state.editData?.stock[0]?.quantity
+  baghdad.value.value = store.state.editData?.stock[1]?.quantity
+  erbil.value.value = store.state.editData?.stock[2]?.quantity
+  console.log('jo', store.state.editData)
+})
+
+const submit = handleSubmit((values) => {
+  let products = {
+    name: values.name,
+    price: values.price,
+    description: values.description,
+    stock: [
+      {
+        name: 'Basra',
+        quantity: values.basra
+      },
+      {
+        name: 'Baghdad',
+        quantity: values.baghdad
+      },
+
+      {
+        name: 'Erbil',
+        quantity: values.erbil
+      }
+    ]
+  }
+  store.dispatch('EDIT_PRODUCT', products)
+})
+</script>

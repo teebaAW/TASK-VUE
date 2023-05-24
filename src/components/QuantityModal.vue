@@ -43,10 +43,8 @@ import { ref } from 'vue'
 export default {
   setup() {
     const { handleSubmit, handleReset } = useForm({})
-
     const quantity = useField('quantity')
     let snackbar = ref(false)
-
     const submit = handleSubmit((values) => {
       if (
         values.quantity >
@@ -64,8 +62,6 @@ export default {
         store.state.snackbarTwo = true
         quantity.value.value = ''
       }
-
-      //   store.dispatch('ADD_NEW', products)
     })
 
     return {

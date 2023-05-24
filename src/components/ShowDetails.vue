@@ -8,7 +8,6 @@ import store from '../store/store'
       <v-dialog v-model="store.state.openDetailsModal" width="auto">
         <v-card>
           <v-card-title class="text-h5"> PRODUCT DETAILS</v-card-title>
-
           <v-card-text>
             <div class="detail-modal">
               <div>
@@ -23,7 +22,6 @@ import store from '../store/store'
               <div>
                 <h3>Quantity in Basra</h3>
                 <h5>{{ store.state.showData.stock[0].quantity }}</h5>
-
                 <h3>Quantity in Baghdad</h3>
                 <h5>{{ store.state.showData.stock[1].quantity }}</h5>
                 <h3>Quantity in Erbil</h3>

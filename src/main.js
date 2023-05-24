@@ -29,8 +29,6 @@ app.mount('#app')
 const $toast = useToast()
 let instance = $toast.success('You did it!')
 
-// Force dismiss specific toast
 instance.dismiss()
 
-// Dismiss all opened toast immediately
 $toast.clear()

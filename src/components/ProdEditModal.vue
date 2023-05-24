@@ -1,4 +1,4 @@
-<script setup>
+<!-- <script setup>
 import store from '../store/store'
 </script>
 
@@ -62,4 +62,4 @@ export default {
 .asd {
   width: 500px;
 }
-</style>
+</style> -->
