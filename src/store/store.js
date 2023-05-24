@@ -15,7 +15,9 @@ const store = createStore({
       quantityModalData: null,
 
       quotatiom: [],
-      snackbarTwo: false
+      snackbarTwo: false,
+
+      extraMoveData: null
     }
   },
   getters: {
@@ -25,11 +27,10 @@ const store = createStore({
     EDIT_PRODUCT(state, payload) {
       // i need id
       state.products.forEach((data, i) => {
-        if (data.id == payload.id) {
+        if (data.name == state.extraMoveData.name) {
           state.products[i] = payload
         }
       })
-      console.log('j', state.products)
     }
   },
   actions: {
@@ -50,7 +51,7 @@ const store = createStore({
     },
     EDIT_PRODUCT({ commit }, payload, data) {
       console.log('payload', data)
-      // commit('EDIT_PRODUCT', payload)
+      commit('EDIT_PRODUCT', payload)
     }
   }
 })

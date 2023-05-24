@@ -203,6 +203,8 @@ const submit = handleSubmit((values) => {
       }
     ]
   }
+  store.state.extraMoveData = store.state.editData
   store.dispatch('EDIT_PRODUCT', products)
+  store.state.openEditModal = false
 })
 </script>
