@@ -190,16 +190,16 @@ const submit = handleSubmit((values) => {
     stock: [
       {
         name: 'Basra',
-        quantity: values.basra
+        quantity: parseInt(values.basra)
       },
       {
         name: 'Baghdad',
-        quantity: values.baghdad
+        quantity: parseInt(values.baghdad)
       },
 
       {
         name: 'Erbil',
-        quantity: values.erbil
+        quantity: parseInt(values.erbil)
       }
     ]
   }
